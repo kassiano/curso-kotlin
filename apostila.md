@@ -126,5 +126,267 @@ Mas você reparou que no primeiro exemplo eu não precisei especificar que a var
 
 
 
+## Definindo funções
+
+A palavra `fun` é a palavra chave para se definir uma função. Uma função em kotlin possui a seguinte anatomia:
+
+
+fun *[Nome da função]* ( *[Parâmetros]* ) : *[Tipo de retorno]* {
+
+    
+} 
+
+
+Assim como na linguagem Java, uma função deve ter um nome, pode receber parâmetros e pode retornar algum valor. Vamos ver um exemplo, vamos fazer uma função que receba 2 números inteiros e retorne a soma de ambos:
+
+
+```
+fun somar(a:Int, b: Int): Int{
+
+    return a + b
+}
+
+```
+
+
+A função acima possui o nome `somar`, recebe os parâmetros `a` e `b` do tipo `Int` e retorna também um `Int` que será a soma de `a` + `b`.
+
+
+Para funções que não possuem retorno, utilizamos o tipo `Unit` para indicar que ela não retornará nada, veja um exemplo:
+
+```
+fun log(msg : String): Unit{
+
+    println(msg)
+}
+```
+
+
+### Funções reduzidas
+
+Uma outra forma de se criar uma função é utilizando sua sintaxe reduzida. Esta forma só funciona para funções com uma única linha e que retornam algum valor, veja como poderia ficar a função `somar`:
+
+```
+fun somar(a:Int, b:Int) = a + b
+```
+
+
+Desta maneira eu reduzo bastante o código defindo que a função será `=` a uma expressão. 
+
+
+
+## Trabalhando com Strings
+
+
+Trabalhar com `String` em Kotlin é muito semelhante a linguagem Java, com algumas pequenas diferenças. Para definir uma `String` utilizamos aspas duplas:
+
+```
+val nome = "Tyler"
+```
+
+
+A grande novidade que o kotlin traz é a capacidade de interpolação de `String`, utilizando o simbolo `$` podemos interpolar uma variável ou até mesmo uma expressão no meio de uma `String`, evitando custosas concatenações. Veja um exemplo:
+
+```
+val nome = "Tyler"
+val idade = 25
+
+println("Olá $nome, você tem $idade anos.")
+```
+
+E para interpolar uma expressão utilizamos `${  }`, veja:
+
+
+```
+val a = 4
+val b = 9
+
+prinln("A soma de $a + $b é ${ a + b }")
+```
+
+
+## Expressões condicionais ( `if` )
+
+A primeira estrutura de decisão que vamos estuda é o famoso `if`, em Kotlin um `if` é muito parecido com Java, veja:
+
+```
+fun maior(a: Int, b:Int){
+
+    if(a > b){
+        pritnln("A é maior que B")
+    }else{
+        pritnln("B é maior que A")
+    
+    }
+
+} 
+```
+
+A diferença que encontramos no Kotlin é que `if` além de uma estrutura de decisão também funciona como uma expressão, isto é, um `if` pode retornar um valor dependendo de alguma condição, vamos ver um exemplo:
+
+
+
+```
+
+fun maior(a: Int, b:Int):Int{
+
+    return if (a > b) a else b
+
+}
+
+```
+
+Usando a notação de função reduzida ...
+
+```
+fun maior(a: Int, b:Int) = if (a > b) a else b
+```
+
+
+### Expressão `when`
+
+A expressão `when` é semelhante a expressão `switch` do java em que eu posso testar varias possibilidades para um valor. Veja um exemplo:
+
+
+```
+val diaDaSemana = 1 
+
+
+when (diaDaSemana){
+
+    1 -> println("Domingo")
+    2 -> println("Segunda-Feira")
+    3 -> println("Terça-Feira")
+    4 -> println("Quarta-Feira")
+    5 -> println("Quinta-Feira")
+    6 -> println("Sexta-Feira")
+    7 -> println("Sabado")
+    else -> println("Indefinido")
+
+}
+
+```
+
+
+A expressão `when` também pode retornar um valor :
+
+
+```
+val diaDaSemana = 1 
+
+val diaDaSemanaString = when (diaDaSemana){
+
+    1 -> "Domingo"
+    2 -> "Segunda-Feira"
+    3 -> "Terça-Feira"
+    4 -> "Quarta-Feira"
+    5 -> "Quinta-Feira"
+    6 -> "Sexta-Feira"
+    7 -> "Sabado"
+    else -> "Indefinido"
+}
+
+```
+
+
+
+## Vetores
+
+Um vetor em kotlin é denominado pela palavra `Array` juntamente com seu tipo, um `Array` de inteiros seria: `Array<Int>`, um `Array` de `String` : `Array<String>` e assim por diante. 
+
+Para inicializar um `Array` você deve usar a função `arrayOf` e passar os valores de inicialização como parâmetro:
+
+```
+val arrayCidades = arrayOf("Jandira", "São Paulo" , "Itapevi" )
+```
+
+```
+val arrayNumeros = arrayOf(10, 14, 25, 98)
+```
+
+Podemos acessar os elementos de um array passando seu `index` entre `[ ]`
+
+
+```
+println(arrayCidades[1])
+```
+
+
+## Listas
+
+
+Podemos definir uma lista em Kotlin com a função `listOf`, similarmente a criação de um array:
+
+```
+val frutas = listOf("Banana", "Melancia", "Pera", "Kiwi" )
+```
+
+Quando usamos a função `listOf` criamos uma lista imúltável, ou seja, seus itens não podem mais sofrer atualizações posteriores. 
+
+Por esse motivo o seguinte código gera um erro de compilação:
+
+```
+frutas[0] = "jaca"
+```
+
+Também não podemos adicionar novos items em uma lista imúltavel.
+
+
+Para resolver isso, temos as listas múltaveis que podem ser definidas pela função `mutableListOf`:
+
+```
+val frutas2 = mutableListOf("Banana", "Melancia", "Pera", "Kiwi" )
+```
+
+Desta forma, temos uma lista multável em que posso modificar seus valores internos e também posso adicionar novos items:
+
+```
+frutas2[0] = "jaca"
+        
+frutas2.add("Carambola")
+
+```
+
+
+## Estruturas de repetição `for`
+
+
+O for é amplamente utilizado para iterar listas, sendo adequado quando sabemos o número de interações que o programa precisa fazer. Veja um exemplo:
+
+```
+val lista = listOf(1,2,3,4)
+    
+for(i in lista) {
+    println("Item: $i")
+}
+```
+
+
+
+Em alguns casos, além do valor, precisamos do índice em que aquele valor está na lista. Para esses casos poderíamos usar o seguinte código:
+
+
+```
+val lista = listOf(1,2,3,4)
+
+for((indice ,valor) in lista.withIndex()){
+      println("índice: $indice  valor: $valor")
+} 
+```
+
+
+## Estruturas de repetição `while`
+
+
+Outra estrutura de repetição disponível na linguagem é o while, cujo funcionamento é diferente do for, pois repete um trecho de código enquanto uma condição não for satisfeita. Por exemplo:
+
+
+```
+var x = 0 
+while (x < 10) {
+    println(x.toString())
+    x++
+}
+```
 
 
