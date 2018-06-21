@@ -2,9 +2,19 @@
 
 
 
-## Soma simples
+## First
 
-Crie uma função em Kotlin que faça a soma de dois inteiros.
+
+Crie uma função que receba 2 valores `Double` como parâmetro que correspondem a notas de P1 e P2 de uma aluno. A função deve calcular a média desse aluno e imprimir na tela sua nota de acordo com o seguinte conceito:
+
+
+| Média de Aproveitamento        | Conceito           | 
+| ------------- |:-------------:| 
+|  Entre 9.0 e 10.0  | A |
+|  Entre 7.5 e 9.0   | B |
+|  Entre 6.0 e 7.5   | C |
+|  Entre 4.0 e 6.0   | D |
+|  Entre 4.0 e zero  | E |
 
 
 ## Soma de Array
@@ -41,7 +51,6 @@ Saída:
 
 ## Diferença diagonal
 
-Given a square matrix, calculate the absolute difference between the sums of its diagonals.
 
 Dado uma matriz quadrada, calcule a diferença absoluta entre a soma de suas diagonais.
 
@@ -64,9 +73,19 @@ Complete a função `diferencaDiagonal`. Essa função receberá uma matriz quad
 fun diferencaDiagonal(a: Array<Array<Int>>): Int {
 
 }
+```
+
+Para inicializar a matrix de teste utilize o seguinte código:
 
 ```
 
+val matriz = arrayOf(
+                arrayOf(1, 2, 3),
+                arrayOf(4, 5, 6),
+                arrayOf(9, 8, 9)
+        )
+
+```
 
 ## Negativos e positivos
 
@@ -102,7 +121,7 @@ Veja mais um exemplo:
 
 ```
 val k = 2
-val a = arrayOf(0 -1 2 1)
+val a = arrayOf(0 ,-1, 2, 1)
 ```
 
 A entrada acima deve produzir a seguinte saída: `AULA NORMAL` pois o professor esperava pelo menos `2` alunos e tinham dois alunos quando a aula começou (`0, -1`)
@@ -117,3 +136,52 @@ fun professorZangado(k: Int, a: Array<Int>): String {
 }
 
 ```
+
+
+## Quadrado Mágico
+
+
+Faça uma função que receba uma `List` de inteiros como parâmetro, e retorne outra `List` com todos os números pares elevados ao quadrado, por exemplo:
+
+```
+val arrayEntrada = listOf( 1 , 4, 2, 5, 9, 6 )
+```
+
+Para essa entrada, o a função deve retornar o seguinte array:
+
+```
+[1 , 16, 4, 5, 81, 36 ]
+```
+
+No `arraySaida` todos os números pares foram elevados ao quadrado, os números impares contiam da mesma forma.
+
+```
+fun quadradoMagico(a :List<Int> ) : List<Int>{
+
+    
+}
+```
+
+
+## Multiplicação de Array
+
+Faça uma função que receba um `Array` de inteiros e retorne a multiplicação de todos os elementos do Array, ex:
+
+
+```
+val a = arrayOf( 1 ,2, 3, 4, 5 )
+```
+
+Este array deve retornar `120` pois `1x2x3x4x5 = 120`.
+
+
+
+
+
+
+
+
+
+
+
+
