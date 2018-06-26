@@ -14,3 +14,21 @@ O aplicativo deve ter o seguinte layout:
 
 ![Calculadora de IMC](img/calculadora_imc.png)
 
+
+## Adicional 
+
+Após o calculo de IMC mostre ao usuário qual a classificação que ele se encotra de acordo com a tabela abaixo:
+
+
+| IMC        | Classificação           |
+| ------------- |:-------------:|
+| < 16     | Magreza grave |
+| 16 a < 17     | Magreza moderada      |
+| 17 a < 18,5| Magreza leve      |
+| 18,5 < 25| Saudável      |
+| 25 a < 30| Sobrepeso      |
+| 30 a < 35| Obesidade Grau I      |
+| 35 a < 40| Obesidade Grau II (Severa)     |
+| > 40| Obesidade Grau III (Mórbida)    |
+
+
