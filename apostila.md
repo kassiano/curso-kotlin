@@ -201,7 +201,7 @@ E para interpolar uma expressão utilizamos `${  }`, veja:
 val a = 4
 val b = 9
 
-prinln("A soma de $a + $b é ${ a + b }")
+println("A soma de $a + $b é ${ a + b }")
 ```
 
 
